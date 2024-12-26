@@ -29,3 +29,9 @@ python3 discord_emote_downloader.py
 ```
 uv run discord_emote_downloader.py
 ```
+
+# Download emotes/stickers from only a single guild
+
+```
+python3 discord_emote_downloader.py guild_id
+```
