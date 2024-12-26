@@ -2,6 +2,9 @@
 
 Quickly download all available Discord emotes and Stickers from Guilds/servers available to your account. Emotes are downloaded into a directory called "emotes" and stickers "stickers". Emote and sticker names are preserved, but emote id appended. e.g. `LuLe_89237897293847.png`
 
+![image](https://github.com/user-attachments/assets/7dc6cb25-45de-4f53-a804-19bd20203280)
+
+
 # Installation
 
 ## Via pip
