@@ -1,4 +1,4 @@
-import httpx
+import requests
 from queue import Queue
 import threading
 from alive_progress import alive_bar
@@ -26,10 +26,10 @@ INCONSPICUOUS_HEADERS = {
 }
 
 TIMEOUTS = (9, 17)
-REQ_SESSION = httpx.Client(headers=INCONSPICUOUS_HEADERS, timeout=TIMEOUTS)
+REQ_SESSION = requests.Session()
 
 DOWNLOAD_QUEUE = Queue()
-DOWNLOAD_THREAD_COUNT = 16
+DOWNLOAD_THREAD_COUNT = 128
 
 EMOTES_DIR = "./emotes"
 STICKERS_DIR = "./stickers"
@@ -135,6 +135,9 @@ def main(guild_id=None):
 		DISCORD_TOKEN = getpass.getpass("Enter your Discord token:\n")
 	
 	INCONSPICUOUS_HEADERS.update({'authorization': DISCORD_TOKEN})
+	REQ_SESSION = requests.Session()
+	REQ_SESSION.headers = INCONSPICUOUS_HEADERS
+	REQ_SESSION.timeout = TIMEOUTS
 
 	if guild_id:
 		guilds = [{'id': guild_id}]
