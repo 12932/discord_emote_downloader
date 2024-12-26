@@ -130,7 +130,7 @@ def main(guild_id=None):
 	load_dotenv()
 	DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
-	if not DISCORD_TOKEN:
+	if DISCORD_TOKEN is None or DISCORD_TOKEN.strip() == "":
 		# Securely prompt for the token if not found in the .env file
 		DISCORD_TOKEN = getpass.getpass("Enter your Discord token:\n")
 	
